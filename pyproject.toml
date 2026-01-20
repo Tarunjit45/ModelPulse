@@ -1,0 +1,24 @@
+[project]
+name = "modelpulse"
+version = "0.1.0"
+description = "A CLI tool to monitor LLM behavior for silent degradation and drift."
+authors = [
+    { name = "Gemini", email = "gemini@google.com" }
+]
+dependencies = [
+    "ollama~=0.1.0",
+    "sentence-transformers~=2.7.0",
+    "typer~=0.9.0", # Using Typer for CLI as it's modern and builds on top of Click
+    "torch~=2.2.0", # Required by sentence-transformers
+    "scikit-learn~=1.4.0", # For cosine similarity
+    "pydantic~=2.5.0", # For data validation and serialization
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+
+[project.scripts]
+modelpulse = "modelpulse.cli:app"
+
+[tool.setuptools.packages]
+find = {namespaces = false}
